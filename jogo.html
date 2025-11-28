@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo - jogo.css">
+</head>
+
+<body class="container-fluid">
+
+  <header class="container-fluid">
+
+  <section class="row align-items-center">
+      
+    <h1 class="col-12 col-sm-4 col-md-6 mb-0 text-left">Estante Virtual</h1>
+
+    <section class="col-12 col-sm-8 col-md-6 text-right d-flex justify-content-end align-items-center flex-nowrap">
+
+      <button onclick="window.location.href='login.html'">Login</button>
+
+      <form action="resultado.html" method="get" class="d-inline-block ml-2">
+        <input type="text" id="busca" name="query" placeholder="Buscar..." />
+        <input type="submit" value="Buscar" />
+      </form>
+
+    </section>
+  </section>
+
+  <br>
+
+  <nav class="navbar navbar-expand-lg navbar-light text-center">
+    <a class="navbar-brand d-lg-none" href="index.html">Menu</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarLinks">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="romance.html">Romance</a></li>
+        <li class="nav-item"><a class="nav-link" href="mistério e fantasia.html">Mistério e Fantasia</a></li>
+        <li class="nav-item"><a class="nav-link" href="desenvolvimento pessoal.html">Desenvolvimento Pessoal</a></li>
+        <li class="nav-item"><a class="nav-link" href="ranking.html">Ranking</a></li>
+        <li class="nav-item"><a class="nav-link" href="hábitos.html">Hábitos de leitura</a></li>
+        <li class="nav-item"><a class="nav-link" href="jogo.html">Quiz: Gêneros literários</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+ 
+  <br>
+ <main class="container-fluid text-center mt-4">
+  <h2>Qual gênero literário combina com você?</h2>
+  <br>
+  <div id="quiz-container">
+    <div id="pergunta" class="pergunta"></div>
+    <button id="btnA"></button>
+    <button id="btnB"></button>
+    <button id="btnC"></button>
+  </div>
+
+  <div id="resultado"></div>
+
+  <script>
+    const perguntas = [
+      {
+        texto: "Quando você lê, o que mais te atrai?",
+        opcoes: {
+          A: "Histórias com personagens e enredos bem definidos",
+          B: "Grandes feitos heroicos e aventuras grandiosas",
+          C: "Expressões intensas de emoções e sentimentos"
+        }
+      },
+      {
+        texto: "Você gosta de textos que:",
+        opcoes: {
+          A: "Contam uma sequência de acontecimentos",
+          B: "Exaltam heróis e suas conquistas",
+          C: "Revelam o mundo interior e a subjetividade"
+        }
+      },
+      {
+        texto: "Prefere ler:",
+        opcoes: {
+          A: "Romances e contos",
+          B: "Poemas épicos e narrativas históricas grandiosas",
+          C: "Poesias e poemas líricos"
+        }
+      },
+      {
+        texto: "O que te prende mais na leitura?",
+        opcoes: {
+          A: "O desenrolar da história e dos personagens",
+          B: "A grandiosidade e a força dos feitos narrados",
+          C: "A beleza das palavras e a profundidade dos sentimentos"
+        }
+      },
+      {
+        texto: "Em uma narrativa, você valoriza:",
+        opcoes: {
+          A: "O enredo e as ações dos personagens",
+          B: "A importância dos atos heroicos e das batalhas",
+          C: "A musicalidade e a emoção da linguagem"
+        }
+      }
+    ];
+
+    let posicaoAtual = 0;
+    let pontuacao = { A: 0, B: 0, C: 0 };
+
+    const perguntaEl = document.getElementById("pergunta");
+    const btnA = document.getElementById("btnA");
+    const btnB = document.getElementById("btnB");
+    const btnC = document.getElementById("btnC");
+    const resultadoEl = document.getElementById("resultado");
+
+    function carregarPergunta() {
+      const perguntaAtual = perguntas[posicaoAtual];
+      perguntaEl.textContent = perguntaAtual.texto;
+      btnA.textContent = perguntaAtual.opcoes.A;
+      btnB.textContent = perguntaAtual.opcoes.B;
+      btnC.textContent = perguntaAtual.opcoes.C;
+      resultadoEl.textContent = "";
+    }
+
+    function responder(letra) {
+      pontuacao[letra]++;
+      posicaoAtual++;
+      if (posicaoAtual < perguntas.length) {
+        carregarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      let max = 0;
+      let genero = "";
+      for (const letra in pontuacao) {
+        if (pontuacao[letra] > max) {
+          max = pontuacao[letra];
+          genero = letra;
+        }
+      }
+
+      let textoResultado = "";
+
+      if (genero === "A") {
+        textoResultado = "Você prefere o gênero Narrativo! Você gosta de histórias com enredos envolventes e personagens cativantes.";
+      } else if (genero === "B") {
+        textoResultado = "Você prefere o gênero Épico! Você curte grandes feitos heroicos, aventuras grandiosas e histórias de coragem.";
+      } else if (genero === "C") {
+        textoResultado = "Você prefere o gênero Lírico! Você é movido(a) por emoções, sentimentos e aprecia textos expressivos e subjetivos.";
+      } else {
+        textoResultado = "Não foi possível definir seu gênero favorito.";
+      }
+
+      perguntaEl.textContent = "";
+      btnA.style.display = "none";
+      btnB.style.display = "none";
+      btnC.style.display = "none";
+      resultadoEl.textContent = textoResultado;
+    }
+
+    btnA.addEventListener("click", () => responder("A"));
+    btnB.addEventListener("click", () => responder("B"));
+    btnC.addEventListener("click", () => responder("C"));
+
+    carregarPergunta();
+  </script>
+ </main>
+<br>
+
+<img src="img/Corredor de Biblioteca Clássica.png" class="w-50 d-block mx-auto">
+<br>
+<br>
+
+  <footer class="text-center mt-4 mb-2">
+    <p>© 2025 Joana Bichet Rocha — Fui eu que fiz, viu??</p>
+  </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+       
+       
