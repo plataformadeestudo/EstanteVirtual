@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cadastre-se</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilo - login.css">
+</head>
+<body class="fundo-site d-flex justify-content-center align-items-center" style="height:100vh;">
+  <main class="login-card text-center w-100" style="max-width:500px;">
+    <h1 class="mb-4">Faça parte do nosso grupo!</h1>
+    <form action="mensagem - cadastre-se.html" method="get">
+      <label for="nome" class="text-left w-100">Nome:</label>
+      <input type="text" id="nome" name="nome" class="form-control mb-2" required>
+
+      <label for="email" class="text-left w-100">Email:</label>
+      <input type="email" id="email" name="email" class="form-control mb-2" required>
+
+      <label for="senha" class="text-left w-100">Senha:</label>
+      <input type="password" id="senha" name="senha" class="form-control mb-2" required>
+
+      <label for="telefone" class="text-left w-100">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" class="form-control mb-2" required>
+
+      <label for="idade" class="text-left w-100">Idade:</label>
+      <input type="number" id="idade" name="idade" class="form-control mb-2" required>
+
+      <label for="genero" class="text-left w-100">Gênero:</label>
+      <select id="genero" name="genero" class="form-control mb-3" required>
+        <option value="" disabled selected>Selecione o gênero</option>
+        <option value="feminino">Feminino</option>
+        <option value="masculino">Masculino</option>
+        <option value="pd">Prefiro não dizer</option>
+        <option value="na">Nenhuma das opções anteriores</option>
+      </select>
+
+      <input type="submit" value="Enviar" class="btn btn-login btn-block mb-3">
+    </form>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+       
