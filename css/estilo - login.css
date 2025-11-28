@@ -1,0 +1,30 @@
+﻿.fundo-site {
+    background-color: #fdf3e0;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+.login-card {
+    background-color: #ede0c7;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #000;
+}
+
+.login-card input,
+.login-card select {
+    border: 1px solid #000 !important;
+    border-radius: 6px;
+}
+
+.btn-login {
+    background-color: #959062;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+
+.btn-login:hover {
+    background-color: #7a754d;
+}
+

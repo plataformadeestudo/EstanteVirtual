@@ -1,0 +1,120 @@
+﻿body {
+  background-color: #fdf3e0; 
+  margin: 0;                 
+  padding: 0;                
+}
+header {
+    width: 97%;
+    padding: 0px 50px 0px 0px;
+    position: relative;
+    background-color: #d1ca89;
+     
+}
+header h1 {
+    margin: 0;
+    text-align: 0;
+    padding: 0px 0px 0px 20px;
+}
+#botao {
+  display: flex;          
+  align-items: center;    
+  gap: 10px;              
+  float: right;           
+  padding: 5px;
+  margin-top: -37px; 
+  background-color: #d1ca89;
+ 
+}
+#botao button, #botao form input[type="submit"] {
+    background-color: #959062;             
+    border: none;
+    border-radius: 8px;       
+    cursor: pointer;
+    border: 1px solid #000000;
+}
+  
+#botao form input[type="text"] {
+    border-radius: 8px;         
+    border: 1px solid #000000;    
+}
+
+header nav {
+    width: 100%;
+    text-align: center; 
+    background-color: #959062;
+    padding: 15px 50px 15px 0px;       
+    margin-top: 10px;     
+    border-radius: 5px;   
+}
+
+header nav a {
+    display: inline-block; 
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: #000;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+main section article {
+    padding: 10px;
+    overflow: auto;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+main section article img {
+    float: left;
+    margin-left: 10px;
+    max-width: 150px;
+    margin-right: 40px;
+}
+
+main section {
+    background-color: #f7ead3;
+    border: 2px solid #552e02;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+main section h2 {
+    border-bottom: 1px dashed #552e02;
+    margin: 0 0 10px 0;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+main section h3 {
+    text-align: center;
+}
+
+main section img {
+    border: 1px solid #552e02;
+    float: left;
+    margin: 10px 10px 0 0;
+    padding: 2px;
+    width: 400px;
+}
+
+a {
+    color: #998c2d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
